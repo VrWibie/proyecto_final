@@ -11,20 +11,20 @@ typedef struct {
     float precio;
 } Producto;
 
-//función para agregar productos
+//funcion para agregar productos
 void agregar(Producto *productos, int *numProductos) {
     printf("Introduce el nombre: ");
     scanf("%s", productos[*numProductos].nombre);
     printf("Introduce la cantidad con unidades: ");
     scanf("%s", productos[*numProductos].cantidad);
-    printf("Digite el precio del producto (solo los números): ");
+    printf("Digite el precio del producto (solo los numeros): ");
     scanf("%f", &productos[*numProductos].precio);
 
     //Donde: numProductos sirve para iterar y posicionarse en el producto que se requiere
     // Y dentro de los productos solo se pueden agregar 50
 
 
-//Apertura del Archivo, y vaciado de la información recopilada
+//Apertura del Archivo, y vaciado de la informacion recopilada
 FILE *file = fopen("DESPENSA.txt", "a"); //El modo a para abirir o crear para escritura
     fprintf(file, "%s %s %f\n", productos[*numProductos].nombre, productos[*numProductos].cantidad, productos[*numProductos].precio);
     fclose(file);
@@ -50,18 +50,18 @@ void modificar(Producto *productos, int numProductos) {
     for(int i = 0; i < numProductos; i++) {   //el bucle for recorre todos los productos                   
           if(strcmp(productos[i].nombre, nombre) == 0) { // mientras que for recorre, if esta a la espera de realizar el argumento 
 
-                                                      //La función strcmp() compara dos cadenas de caracteres y devuelve un valor entero. 
-                                                      // Si las cadenas son  iguales, la función devuelve el valor 0. Silas cadenas son diferentes, 
-                                                      // la función devuelve un valor negativo si la primera cadena es menor que la segunda cadena, 
+                                                      //La funcion strcmp() compara dos cadenas de caracteres y devuelve un valor entero. 
+                                                      // Si las cadenas son  iguales, la funcion devuelve el valor 0. Silas cadenas son diferentes, 
+                                                      // la funcion devuelve un valor negativo si la primera cadena es menor que la segunda cadena, 
                                                       // o un valor positivo si la primera cadena es mayor que la segunda cadena.
                                         //En este caso necesitamos que las cadenas sean iguales
               printf("Introduce el nuevo nombre: ");
               scanf("%s", productos[i].nombre);
               printf("Introduce la nueva cantidad: ");
               scanf("%s", productos[i].cantidad);
-              printf("Digite el precio del producto (solo los números): ");
+              printf("Digite el precio del producto (solo los numeros): ");
               scanf("%f", &productos[i].precio);
-              //este fprintf esta reescribiendo la nueva modificación en el lugar del producto cambiado
+              //este fprintf esta reescribiendo la nueva modificacion en el lugar del producto cambiado
               fprintf(nuevo, "%s %s %f\n", productos[i].nombre, productos[i].cantidad, productos[i].precio);
 //              (*numPersonas)++;
               //return;
@@ -84,10 +84,10 @@ void borrar(Producto *productos, int *numProductos) { //tengo 4 productos
     printf("Introduce el nombre del produto a borrar: "); 
     scanf("%s", nombre); //Manzana
     for(int i = 0; i < *numProductos; i++) { //el iterador da 4 vueltas 0,1,2,3
-        if(strcmp(productos[i].nombre, nombre) == 0) { // si las cadenas son idénticas(Ejemplo en i=2 Manzana) hacer{}
+        if(strcmp(productos[i].nombre, nombre) == 0) { // si las cadenas son identicas(Ejemplo en i=2 Manzana) hacer{}
             for(int j = i; j < *numProductos - 1; j++) { //j=2     numProductos=4-1=3 j va una vuelta en j=i=2
                 productos[j] = productos[j + 1];  /*primer vuelta producto 2(manzana)= produto3(Platano)
-                por lo que, ese producto será reemplazado por el prodcuto 3 que es platano, ahora
+                por lo que, ese producto sera reemplazado por el prodcuto 3 que es platano, ahora
                  platano es el producto 2*/
             }
             (*numProductos)--; //entonces se reducira en 1 el numero de productos
@@ -103,9 +103,9 @@ void borrar(Producto *productos, int *numProductos) { //tengo 4 productos
             return;
         }
     }
-    printf("No se encontró el producto.\n");
+    printf("No se encontro el producto.\n");
 }
-//Función para buscar algun producto
+//Funcion para buscar algun producto
 void buscar(Producto *productos, int numProductos) {
     char nombre[50];
     printf("Introduce el nombre de la persona a buscar: ");
@@ -116,13 +116,13 @@ void buscar(Producto *productos, int numProductos) {
             return;
         }
     }
-    printf("No se encontró a la persona.\n");
+    printf("No se encontro a la persona.\n");
 }
-//Función para guardar
+//Funcion para guardar
 void guardar(Producto *productos, int numProductos) {
     // FILE *file = fopen("DESPENSA.txt", "w");
     FILE *file = fopen("DESPENSA.txt", "a");/* se abre el archivo con modo 'a'para Abrir o 
-    crea para escritura. Agrega después de cualquier contenido previo.*/
+    crea para escritura. Agrega despues de cualquier contenido previo.*/
     if(file == NULL) {
         printf("No se pudo abrir el archivo.\n");
         return;
@@ -133,7 +133,7 @@ void guardar(Producto *productos, int numProductos) {
     
     fclose(file);
 }
-//Función para cargar
+//Funcion para cargar
 void cargar(Producto *productos, int *numProductos) {
     FILE *file = fopen("DESPENSA.txt", "r"); //Se abre la lectura del archivo con el modo 'r'
     if(file == NULL) {
@@ -146,7 +146,7 @@ void cargar(Producto *productos, int *numProductos) {
     }
     fclose(file);
 }
-//función principal int main
+//funcion principal int main
 int main() {
     
     setlocale(LC_ALL,"");
@@ -166,7 +166,7 @@ int main() {
 //        printf("6. Guardar personas\n"); //realizado por las funciones
 //        printf("7. Cargar personas\n");   //realizado por las funciones
         printf("6. Salir\n");
-        printf("Selecciona una opción: ");
+        printf("Selecciona una opcion: ");
         scanf("%d", &opcion);
 
         switch(opcion) {
