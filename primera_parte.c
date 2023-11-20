@@ -157,7 +157,6 @@ int main() {
     
     cargar(productos, &numProductos);
     
-    
     do {
         printf("1. Agregar producto\n");
         printf("2. Listar productos\n");
