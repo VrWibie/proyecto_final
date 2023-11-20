@@ -1,0 +1,4 @@
+frijoles 3 30.000000
+arroz 2 0.000000
+queso 1 160.000000
+pollo 2piezas 30.000000
