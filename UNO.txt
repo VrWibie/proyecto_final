@@ -1,1 +1,4 @@
-Gilberto 0 Vergara
+Gilberto 18 Mexicano
+Victor 21 Mexicano
+Gabriel 18 \
+Axel 18 Chileno
