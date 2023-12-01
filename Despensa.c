@@ -234,6 +234,22 @@ void No_enfer(const char *NoEfermedad)
     fclose(file); // cierre del archivo SinEnfermedad
 }
 
+// funcion para taer archivo de texto al ejecutable (Caratula)
+void Car()
+{
+    FILE *file = fopen("Caratula.txt", "r"); //'r'para abrir la lectura del archivo Obesidad
+    if (file == NULL)
+    {
+        printf("No se encontro el archivo\n");
+        return;
+    }
+    char texto[1000]; // Se almacena cada linea de texto
+    while (fgets(texto, sizeof(texto), file))
+    {
+        printf("%s", texto); // imprime la linea
+    }
+    fclose(file); // cierre del archivo caratula
+}
 // funcion principal int main
 int main()
 {
@@ -245,6 +261,9 @@ int main()
     int opcion;
     int n;
 
+    printf("La caratula: \n");
+    Car("Caratula.txt");
+    printf("\n\n");
     cargar(productos, &numProductos);
 
     printf("Has sufrido o sufres alguna enfermedad como las siguientes?\n");
@@ -262,20 +281,20 @@ int main()
         {
 
         case 1:
-         system("cls");
+            system("cls");
             Hiper("hipertension.txt");
             break;
 
         case 2:
-         system("cls");
+            system("cls");
             Dia("Diabetes.txt");
             break;
         case 3:
-         system("cls");
+            system("cls");
             Obe("Obesidad.txt");
             break;
         case 4:
-         system("cls");
+            system("cls");
             No_enfer("SinEnfermedad.txt");
             break;
         } // llave de switch
